@@ -1,0 +1,61 @@
+﻿@using Cours.Models
+@* @model type_de_la_donne *@
+@model IEnumerable<Paiement>
+
+
+@{
+    ViewData["Title"] = "Client Page";
+    @* Layout = "_Layout"; *@
+}
+
+<div class="card">
+    <div class="card-header">Liste clients</div>
+    <div class="card-body">
+        <div class="my-2 d-flex justify-content-end ">
+            <a class="btn btn-outline-dark" asp-action="Create">Nouvelle Dette</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Montant</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var dette in Model)
+                    {
+                        <tr class="">
+                            <td>@Html.DisplayFor(modelItem => dette.Id)</td>
+                            <td>@Html.DisplayFor(modelItem => dette.Date)</td>
+                            <td>@Html.DisplayFor(modelItem => dette.Montant)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation" class="float-end">
+                <ul class="pagination    ">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </div>
